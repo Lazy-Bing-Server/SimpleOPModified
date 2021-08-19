@@ -1,0 +1,31 @@
+simple_op_modified.help_msg: |
+  ---- MCDR {0} v{1} ----
+  轻松简单地获取OP或重启服务端
+  §7{2}§r 手动获取OP权限
+  §7{2} help§r 显示本帮助信息
+  §7{2} auto§6 <true/false>§r 启用/禁用全局自动发放OP
+  §7{2} enable§e [玩家]§r 允许向指定的玩家自动发放OP
+  §7{2} disable§e [玩家]§r 禁止向指定的玩家自动发放OP
+  §7{3}§r 重新启动服务端
+
+simple_op_modified.op_help_msg: 获取OP权限
+simple_op_modified.restart_help_msg: 重启服务端
+
+simple_op_modified.error.perm_denied: 权限不足, 你想桃子呢rue
+simple_op_modified.error.runtime: §c该指令仅可由游戏内玩家执行
+simple_op_modified.error.cmd_error: 指令有误rue, 点此获取帮助信息
+simple_op_modified.error.no_restart_called: §c没要求重启啊rue
+simple_op_modified.error.restart_already_called: §c已经要求重启了rue
+
+simple_op_modified.hover.get_help: 点此查阅帮助信息
+simple_op_modified.hover.suggest: 点击以填入§7{}§r
+simple_op_modified.hover.run: 点击以执行§7{}§r
+
+simple_op_modified.text.auto_op_set: 规则§e自动发放OP§r当前被设定为
+simple_op_modified.text.player_auto_set: 现在会§a自动§r向玩家{}发放OP权限
+simple_op_modified.text.player_manual_set: 现在玩家必须§c手动§r获取OP权限
+simple_op_modified.text.request_restart: 已要求重启, 执行/以确认(确认后不可取消),执行/以取消
+simple_op_modified.text.restart_aborted: 已取消重启
+simple_op_modified.text.restart_countdown: §c{} 秒后重启服务器...§r
+simple_op_modified.text.manual_failed: ", {}名玩家设置§c失败§r: §e{}§r"
+simple_op_modified.text.manual_succeed: "{}名玩家设置§a成功§r"

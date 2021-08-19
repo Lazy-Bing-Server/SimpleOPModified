@@ -1,0 +1,32 @@
+simple_op_modified.help_msg: |
+  ---- MCDR {0} v{1} ----
+  Get op and restart server easily
+  §7{2}§r Get operator permission manually
+  §7{2} help§r Show this help message
+  §7{2} auto§6 <true/false>§r Enable/disable auto-op globally
+  §7{2} enable§e [players]§r Enable auto-op for players
+  §7{2} disable§e [players]§r Disable auto-op for players
+  §7{3}§r Restart this server
+
+simple_op_modified.op_help_msg: Give me operator permission
+simple_op_modified.restart_help_msg: Restart this server
+
+simple_op_modified.error.perm_denied: Permission denied
+simple_op_modified.error.runtime: §cThis command can only be used by players in-game
+simple_op_modified.error.cmd_error: Command error, click here for help
+simple_op_modified.error.no_restart_called: §cNo server restart is requested
+simple_op_modified.error.restart_already_called: §cServer restart is already requested
+
+simple_op_modified.hover.get_help: Click here to view help msg
+simple_op_modified.hover.suggest: Click here to fill §7{}§r
+simple_op_modified.hover.run: Click here to run §7{}§r
+
+simple_op_modified.text.auto_op_set: Rule §eautoGiveOP§r now set to
+simple_op_modified.text.player_auto_set: Player(s) {} now will §aauto§r get operator permisson on join
+simple_op_modified.text.player_manual_set: Player(s) {} now should §cmanually§r get operator permission
+simple_op_modified.text.request_restart: Restart requested. Use / to confirm (can't abort after confirm), / to abort
+simple_op_modified.text.restart_aborted: Cancelled server restart
+simple_op_modified.text.restart_countdown: §cServer will restart in {} seconds...§r
+simple_op_modified.text.manual_failed: ", §cfailed§r {} players: §e{}§r"
+simple_op_modified.text.manual_succeed: §aSuccessfully§r changed {} players
+
