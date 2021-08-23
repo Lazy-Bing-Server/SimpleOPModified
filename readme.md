@@ -6,4 +6,4 @@
 
 `!!restart` restart the server (requires confirm)
 
-config path: `config/simple_op_modified.json`
+config path: `config/SimpleOPModified.json`
