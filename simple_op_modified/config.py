@@ -11,6 +11,8 @@ class Config(Serializable):
     get_op_permission: int = 3
     auto_op: bool = False
     manual_list: List[str] = []
+    restart_need_confirm: bool = True
+    restart_countdown: int = 5
 
     def save(self):
         with open(CONFIG_PATH, 'w') as f:

@@ -61,8 +61,8 @@ def show_help(source: CommandSource):
 def restart_confirm(source: CommandSource):
     acq = restart_lock.acquire(blocking=False)
     if not acq:
-        for i in range(5):
-            source.get_server().broadcast(RText(tr('text.restart_countdown', 5 - i), color=RColor.red))
+        for i in range(config.restart_countdown):
+            source.get_server().broadcast(RText(tr('text.restart_countdown', config.restart_countdown - i), color=RColor.red))
             time.sleep(1)
         source.get_server().restart()
     else:
@@ -76,15 +76,18 @@ def restart_unlock(source: CommandSource):
         restart_already_called(source)
         return
     else:
-        confirm = RESTART_PREFIX + ' confirm'
-        abort = RESTART_PREFIX + ' abort'
-        text = tr('text.request_restart').split('/')
-        source.get_server().broadcast(RTextList(
-            text[0], RText(confirm, color=RColor.gray).c(RAction.run_command, confirm).h(tr('hover.run', confirm)),
-            text[1], RText(abort, color=RColor.gray).c(RAction.run_command, abort).h(tr('hover.run', abort)),
-            text[2]
+        if config.restart_need_confirm:
+            confirm = RESTART_PREFIX + ' confirm'
+            abort = RESTART_PREFIX + ' abort'
+            text = tr('text.request_restart').split('/')
+            source.get_server().broadcast(RTextList(
+                text[0], RText(confirm, color=RColor.gray).c(RAction.run_command, confirm).h(tr('hover.run', confirm)),
+                text[1], RText(abort, color=RColor.gray).c(RAction.run_command, abort).h(tr('hover.run', abort)),
+                text[2]
+                )
             )
-        )
+        else:
+            restart_confirm(source)
 
 
 def restart_abort(source: CommandSource):
