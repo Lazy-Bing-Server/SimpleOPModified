@@ -1,4 +1,9 @@
 `!!op` give you op
 
-`!!restart` restart the server
+`!!op enable/disable` to enable/disable auto-op for urself
 
+`!!op auto enable/disable` to enable/disable auto-op globally
+
+`!!restart` restart the server (requires confirm)
+
+config path: `config/simple_op_modified.json`
