@@ -1,6 +1,6 @@
 {
     "id": "simple_op_modified",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "Simple OP Modified",
     "description": "!!op to get op, !!restart to restart",
     "author": [
@@ -8,6 +8,7 @@
     ],
     "link": "https://github.com/Lazy-Bing-Server/SimpleOPModified",
     "dependencies": {
+        "mcdreforged": ">=2.5.2"
     },
 
     "resources": [

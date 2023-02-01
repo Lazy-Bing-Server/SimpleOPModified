@@ -1,9 +1,11 @@
 import json
+import os.path
+import shutil
 
 from mcdreforged.api.all import Serializable
 from typing import List
 
-from simple_op_modified.constants import CONFIG_PATH, global_server
+from simple_op_modified.constants import CONFIG_PATH, global_server, OLD_CONFIG_PATH
 
 
 class Config(Serializable):
@@ -20,6 +22,8 @@ class Config(Serializable):
 
     @classmethod
     def load(cls):
+        if os.path.isfile(OLD_CONFIG_PATH) and not os.path.isfile(CONFIG_PATH):
+            shutil.move(OLD_CONFIG_PATH, CONFIG_PATH)
         return global_server.load_config_simple(
             CONFIG_PATH, in_data_folder=False, default_config=cls.get_default().serialize(), echo_in_console=True,
             target_class=cls

@@ -1,16 +1,13 @@
 import re
-import os
 import time
-import logging
-import types
-
-from typing import Optional
 from threading import Lock
-from parse import parse
-from mcdreforged.api.all import *
+from typing import Optional
 
-from simple_op_modified.constants import LOG_PATH, META, global_server, OP_PREFIX, RESTART_PREFIX
+from mcdreforged.api.all import *
+from parse import parse
+
 from simple_op_modified.config import config, PlayerExistanceError
+from simple_op_modified.constants import LOG_PATH, META, global_server, OP_PREFIX, RESTART_PREFIX
 
 restart_lock = Lock()
 
@@ -19,18 +16,6 @@ def tr(key, *fmt) -> str:
     return global_server.tr(f'{META.id}.{key}', *fmt)
 
 
-def set_file(self: MCDReforgedLogger, file_name: str):
-    if self.file_handler is not None:
-        self.removeHandler(self.file_handler)
-    if not os.path.isfile(file_name):
-        with open(file_name, 'w') as f:
-            f.write('')
-    self.file_handler = logging.FileHandler(file_name, encoding='UTF-8')
-    self.file_handler.setFormatter(self.FILE_FMT)
-    self.addHandler(self.file_handler)
-
-
-global_server.logger.set_file = types.MethodType(set_file, global_server.logger)
 global_server.logger.set_file(LOG_PATH)
 
 
@@ -66,7 +51,7 @@ def restart_confirm(source: CommandSource):
             time.sleep(1)
         source.get_server().restart()
     else:
-        source.reply(no_restart_required(source))
+        no_restart_required(source)
     restart_lock.release()
 
 
@@ -188,6 +173,10 @@ def console_runtime_call_error(source):
 
 def cmd_error(source: CommandSource):
     source.reply(tr('error.cmd_error'))
+
+
+def on_unload(server: PluginServerInterface):
+    server.logger.unset_file()
 
 
 def on_load(server: PluginServerInterface, prev):
